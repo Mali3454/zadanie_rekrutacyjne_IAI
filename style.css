@@ -135,11 +135,11 @@ img.popup-image__img {
 }
 
 .popup-info__size-label:hover {
-	border: 2px solid #0090f6;
+	border: 1px solid #0090f6;
 }
 
 input.popup-info__size-checkbox:checked + label.popup-info__size-label {
-	border: 2px solid #0090f6;
+	border: 1px solid #0090f6;
 }
 
 .popup-info__size-wrapper {
