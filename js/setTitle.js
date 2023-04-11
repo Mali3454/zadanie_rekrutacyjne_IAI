@@ -4,6 +4,6 @@ export const setTitle = () => {
 	fetchData().then(data => {
 		const titleDiv = document.querySelector('#title')
 
-		titleDiv.innerHTML = `<p class='popup-info__title-p'>${data.product.name}</p>`
+		titleDiv.innerHTML = `<h2 class='popup-info__title-h2'>${data.product.name}</h2>`
 	})
 }
