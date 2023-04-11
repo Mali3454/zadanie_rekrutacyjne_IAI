@@ -417,7 +417,6 @@ input.popup-info__size-checkbox:checked + label.popup-info__size-label {
 }
 
 @media (max-width: 450px) {
-
 	img.popup-image__img {
 		height: 144px;
 		width: 200px;
@@ -471,6 +470,16 @@ input.popup-info__size-checkbox:checked + label.popup-info__size-label {
 		font-size: 12px;
 		margin-left: 5px;
 	}
+
+	.popup-info__other {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.popup-info__available {
+		margin-left: 0;
+	}
 }
 
 @media (max-width: 350px) {
@@ -494,12 +503,6 @@ input.popup-info__size-checkbox:checked + label.popup-info__size-label {
 
 	.popup-info__select {
 		width: 225px;
-	}
-
-	.popup-info__other {
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 	}
 
 	.popup-info__available {
