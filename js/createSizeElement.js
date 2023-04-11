@@ -3,10 +3,28 @@ import { updateObject } from './updateObject.js'
 import { setAvailable } from './setAvailable.js'
 import { setAmount } from './setAmount.js'
 
-export const createSizeElement = array => {
+export const createSizeElement = data => {
 	const parentElement = document.querySelector('#size-wrapper')
 
-	for (const element of array) {
+	const sizes = data.sizes.items
+	const variants = data.multiversions[0].items
+	const itemsNames = []
+	const itemVariants = []
+
+	for (const key in sizes) {
+		const itemName = sizes[key]
+		itemsNames.push(itemName)
+	}
+
+	for (const key in variants) {
+		const item_Variants = variants[key].values
+		for (const key in item_Variants) {
+			const itemVariant = item_Variants[key]
+			itemVariants.push(itemVariant)
+		}
+	}
+
+	for (const element of itemsNames) {
 		const isChecked = JSON.parse(localStorage.getItem(element.type))
 
 		const newDiv = document.createElement('div')
@@ -23,9 +41,9 @@ export const createSizeElement = array => {
 		}
 		inputRadio.onclick = () => {
 			updateObject()
-			setPrice()
-			setAvailable()
-			setAmount()
+			setPrice(data)
+			setAvailable(data)
+			setAmount(data)
 		}
 
 		const newLabel = document.createElement('label')
@@ -39,6 +57,8 @@ export const createSizeElement = array => {
 
 		parentElement.appendChild(newDiv)
 
-		setPrice()
+		if (isChecked) {
+			setPrice(data)
+		}
 	}
 }

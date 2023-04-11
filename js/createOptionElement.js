@@ -4,12 +4,30 @@ import { setPrice } from './setPrice.js'
 import { slider } from './slider.js'
 import { updateObject } from './updateObject.js'
 
-export const createOptionElement = array => {
+export const createOptionElement = data => {
 	const parentElement = document.querySelector('#select')
 
 	const isSelected = JSON.parse(localStorage.getItem('select'))
 
-	for (const element of array) {
+	const sizes = data.sizes.items
+	const variants = data.multiversions[0].items
+	const itemsNames = []
+	const itemVariants = []
+
+	for (const key in sizes) {
+		const itemName = sizes[key]
+		itemsNames.push(itemName)
+	}
+
+	for (const key in variants) {
+		const item_Variants = variants[key].values
+		for (const key in item_Variants) {
+			const itemVariant = item_Variants[key]
+			itemVariants.push(itemVariant)
+		}
+	}
+
+	for (const element of itemVariants) {
 		const newOption = document.createElement('option')
 		newOption.value = element.id
 		newOption.text = element.name
@@ -21,9 +39,9 @@ export const createOptionElement = array => {
 	}
 	parentElement.onclick = () => {
 		updateObject()
-		setPrice()
-		setAvailable()
-		setAmount()
-		slider()
+		setPrice(data)
+		setAvailable(data)
+		setAmount(data)
+		slider(data)
 	}
 }
