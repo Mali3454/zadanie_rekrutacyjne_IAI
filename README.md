@@ -1,2 +1,2 @@
 <h1>Zadanie rekrutacyjne<h1>
-<p>To jest repozytorium stworzone dla zadania rekrutacyjnego. Zadanie polega na napisaniu programu, który polegał na wykonaniu mechanizmu dla „mini-karty" w formie okna pop-up </p>
+To jest repozytorium stworzone dla zadania rekrutacyjnego. Zadanie polega na napisaniu programu, który polegał na wykonaniu mechanizmu dla „mini-karty" w formie okna pop-up 
