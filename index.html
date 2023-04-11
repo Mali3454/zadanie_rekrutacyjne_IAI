@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="popup-overlay"></div>
+    <div class="popup-wrapper">
+        <form class="popup-form" id="popup">
+            <div class="popup-image">
+                <div class="popup-image__arrowDiv">
+                    <button id="slider-left" class="popup-image__arrow-btn" type="button"><img
+                            src="./assets/chevron-left-solid.svg" alt="'left-arrow"
+                            class="popup-image__arrow-img" /></button>
+                </div>
+                <div class="popup-image__imgDiv"><img class="popup-image__img" id="slider" /></div>
+                <div class="popup-image__arrow-div"> <button id="slider-right" class="popup-image__arrow-btn"
+                        type="button"><img src="./assets/chevron-right-solid.svg" alt="'left-arrow"
+                            class="popup-image__arrow-img" /></button>
+                </div>
+            </div>
+            <div class="popup-info">
+                <div id='title' class="popup-info__title"></div>
+                <div class="popup-info__price" id="price"></div>
+                <div class="popup-info__subtitle">
+                    <p class="popup-info__subtitle-p">Rozmiar</p>
+                </div>
+                <div id="size-wrapper" class="popup-info__size-wrapper">
+
+                </div>
+                <div class="popup-info__subtitle">
+                    <p class="popup-info__subtitle-p">Wariant</p>
+                </div>
+                <select id="select" class="popup-info__select">
+
+                </select>
+                <div class="popup-info__other">
+                    <div id='available' class="popup-info__available">
+                    </div>
+                    <div class="popup-info__delivery"><img class="popup-info__delivery-img" src="./assets/timer.svg"
+                            alt="Dostawa" />
+                        <div class="popup-info__delivery-div">
+                            <p class="popup-info__delivery-p">Możemy wysłać już dzisiaj</p><a
+                                href="https://www.google.com/" class="popup-info__delivery-a">Sprawdź czas i koszty
+                                wysyłki</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-info__btn-wrapper">
+                    <div class="popup-info__quantity">
+                        <button class="popup-info__quantity-btn" id="quantity-down" type="button">-</button>
+                        <p class="popup-info__p-quantity" id="quantity"></p>
+                        <button class="popup-info__quantity-btn" id="quantity-up" type="button">+</button>
+                    </div>
+                    <button class="popup-info__btn" type="submit" id="submit">Dodaj do koszyka</button>
+                </div>
+            </div>
+            <button class="popup__close" id="popup__close"><img src="./assets/close-solid.svg" alt="closeIcon"
+                    class="popup__close-svg" />
+            </button>
+        </form>
+
+        <div class="btn-wrapper">
+            <button class="popup-btn" id="popup-btn">Przycisk</button>
+        </div>
+    </div>
+
+    <script type="module" src="./js/index.js"></script>
+</body>
+
+</html>
