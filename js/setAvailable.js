@@ -20,7 +20,7 @@ export const setAvailable = () => {
 					svgAlt = 'Produkt niedostępny'
 				}
 
-				avilableDiv.innerHTML = `<img class='popup-info__available-img' src=${svgSrc} alt=${svgAlt}/><p class='popup-info__available-p'>${status}</p>`
+				avilableDiv.innerHTML = `<img class='popup-info__available-img' src=${svgSrc} alt=${svgAlt}></img><p class='popup-info__available-p'>${status}</p>`
 			}
 		}
 	})
