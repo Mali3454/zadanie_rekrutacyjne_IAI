@@ -45,6 +45,9 @@ export const createOptionElement = data => {
 				parentElement.selectedIndex = i
 			}
 		}
+		newOption.onclick = () => {
+			slider(data)
+		}
 	}
 
 	// Add an onclick event listener to the select element that updates the UI based on the selected option
@@ -53,6 +56,8 @@ export const createOptionElement = data => {
 		setPrice(data)
 		setAvailable(data)
 		setAmount(data)
+	}
+	parentElement.onchange = () => {
 		slider(data)
 	}
 }

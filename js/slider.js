@@ -14,7 +14,9 @@ export const slider = (data, index = 0) => {
 			const multiversion = multiversions[key]
 			if (multiversion.values_id === item.variant) {
 				let maxIndex = multiversion.img.length
-				localObj.maxIndex = maxIndex
+				if (localObj) {
+					localObj.maxIndex = maxIndex
+				}
 				localStorage.setItem('iaiStorage', JSON.stringify(localObj))
 				const image = multiversion.img[index]
 				slider.src = image.src
