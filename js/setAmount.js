@@ -1,19 +1,16 @@
 import { updateObject } from './updateObject.js'
 
 export const setAmount = data => {
-
 	// Call the updateObject function and assign the object
 	const item = updateObject()
-	
-	
+
 	const btn = document.querySelector('#submit')
 
-	
 	let localObj = JSON.parse(localStorage.getItem('iaiStorage'))
-	localObj.amount = 0
 
 	let amount = localObj.amount ? localObj.amount : 1
 
+	localObj.amount = amount
 	const maxAmount = data.sizes.items[item.size].amount
 	localObj.maxAmount = maxAmount
 
@@ -27,8 +24,9 @@ export const setAmount = data => {
 		localStorage.setItem('iaiStorage', JSON.stringify(localObj))
 	} else {
 		quantityP.textContent = amount
+		localObj.amount = amount
+		localStorage.setItem('iaiStorage', JSON.stringify(localObj))
 	}
-
 
 	//iI the value is less than zero disable button, otherwise enable
 	if (maxAmount === 0) {
