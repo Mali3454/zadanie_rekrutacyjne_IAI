@@ -21,6 +21,7 @@ export const setAmount = data => {
 	//If amount is greater than maxAmount, set the text content of quantityP to maxAmount and save the updated localObj object to local storage. Otherwise, set the text content of quantityP to amount.
 	if (amount > maxAmount) {
 		quantityP.textContent = maxAmount
+		localObj.amount = maxAmount
 		localStorage.setItem('iaiStorage', JSON.stringify(localObj))
 	} else {
 		quantityP.textContent = amount
