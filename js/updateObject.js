@@ -1,26 +1,21 @@
 export const updateObject = () => {
 	const checkbox = document.querySelector('input[type="radio"]:checked')
+	const selectElement = document.querySelector('select')
 
-	localStorage.setItem('myCheckbox', checkbox.checked)
+	const selectedIndex = selectElement.selectedIndex
+	const selectedOption = selectElement.options[selectedIndex]
+	const selectedValue = selectedOption.value
 
-	const select = document.querySelector('#select')
-
-	const type = checkbox.value
-	const variant = select.value
-
-	const checkboxes = document.querySelectorAll('input[type="radio"]')
-
-	checkboxes.forEach(checkbox => {
-		localStorage.setItem(checkbox.value, JSON.stringify(checkbox.checked))
-	})
-
-	const option = document.querySelector('select').selectedIndex
-
-	localStorage.setItem('select', JSON.stringify(option))
-
-	if (type && variant) {
-		const item = { type, variant }
-
-		return item
+	const obj = { size: checkbox.value, variant: selectedValue }
+	let localObj = JSON.parse(localStorage.getItem('iaiStorage'))
+	if (!localObj) {
+		localStorage.setItem('iaiStorage', JSON.stringify(obj))
+	} else {
+		localObj.size = checkbox.value
+		localObj.variant = selectedValue
+		localStorage.setItem('iaiStorage', JSON.stringify(localObj))
 	}
+
+
+	return obj
 }

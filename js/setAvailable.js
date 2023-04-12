@@ -1,12 +1,11 @@
-import { fetchData } from './fetchData.js'
 import { updateObject } from './updateObject.js'
 
 export const setAvailable = data => {
 	const item = updateObject()
 
 	if (item) {
-		if (item.type in data.sizes.items) {
-			const status = data.sizes.items[item.type].status
+		if (item.size in data.sizes.items) {
+			const status = data.sizes.items[item.size].status
 			let svgSrc = ''
 			let svgAlt = ''
 			const avilableDiv = document.querySelector('#available')

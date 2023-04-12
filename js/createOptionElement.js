@@ -7,17 +7,14 @@ import { updateObject } from './updateObject.js'
 export const createOptionElement = data => {
 	const parentElement = document.querySelector('#select')
 
-	const isSelected = JSON.parse(localStorage.getItem('select'))
-
-	const sizes = data.sizes.items
-	const variants = data.multiversions[0].items
-	const itemsNames = []
-	const itemVariants = []
-
-	for (const key in sizes) {
-		const itemName = sizes[key]
-		itemsNames.push(itemName)
+	let selectedValue
+	let localObj = JSON.parse(localStorage.getItem('iaiStorage'))
+	if (localObj) {
+		selectedValue = localObj.variant
 	}
+
+	const variants = data.multiversions[0].items
+	const itemVariants = []
 
 	for (const key in variants) {
 		const item_Variants = variants[key].values
@@ -27,16 +24,22 @@ export const createOptionElement = data => {
 		}
 	}
 
-	for (const element of itemVariants) {
+	for (let i = 0; i < itemVariants.length; i++) {
 		const newOption = document.createElement('option')
-		newOption.value = element.id
-		newOption.text = element.name
+		newOption.value = itemVariants[i].id
+		newOption.text = itemVariants[i].name
 
 		parentElement.appendChild(newOption)
-		if (isSelected) {
-			parentElement.selectedIndex = isSelected
+
+		if (!selectedValue) {
+			parentElement.selectedIndex = 0
+		} else {
+			if (itemVariants[i].id === parseInt(selectedValue)) {
+				parentElement.selectedIndex = i
+			}
 		}
 	}
+
 	parentElement.onclick = () => {
 		updateObject()
 		setPrice(data)

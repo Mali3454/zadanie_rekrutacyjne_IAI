@@ -16,16 +16,17 @@ body {
 }
 
 .popup-form {
-	gap: 30px;
+	flex-direction: column;
+	width: 90%;
+	height: 620px;
+	margin-bottom: 50px;
+	gap: 0;
 	display: none;
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 745px;
-	height: 384px;
 	align-items: center;
-	flex-direction: row;
 	justify-content: center;
 	background-color: #ffffff;
 	border-radius: 5px;
@@ -33,13 +34,14 @@ body {
 }
 
 .popup-image {
+	margin: 0;
+	margin-top: 20px;
 	display: flex;
 	flex-direction: row;
 	height: 100%;
 	width: 356px;
 	align-items: center;
 	justify-content: center;
-	margin-left: 20px;
 }
 
 .popup-image__arrow-div {
@@ -54,8 +56,9 @@ body {
 }
 
 img.popup-image__img {
-	height: 166px;
-	width: 229px;
+	margin-top: 30px;
+	height: 108px;
+	width: 150px;
 }
 
 .popup-image__arrow-btn {
@@ -79,17 +82,25 @@ img.popup-image__img {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: start;
 	height: 100%;
 	width: 389px;
+	align-items: center;
+	justify-content: center;
+}
+
+.popup-info__title {
+	text-align: center;
+	margin-top: 10px;
+	width: 300px;
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
 .popup-info__title-h2 {
 	font-size: 16px;
 	font-weight: bold;
 	line-height: 17px;
-	margin-right: 73px;
-	margin-top: 24px;
+	margin: 0 30px;
 }
 
 .popup-info__price {
@@ -99,8 +110,7 @@ img.popup-image__img {
 	font-style: normal;
 	text-align: left;
 	color: #0090f6;
-	margin-top: 10px;
-	margin-right: 73px;
+	margin: 15px 30px 0 30px;
 }
 
 .popup-info__subtitle-p {
@@ -122,7 +132,7 @@ img.popup-image__img {
 	line-height: 35px;
 	font-style: normal;
 	cursor: pointer;
-	width: 99px;
+	width: 70px;
 	height: 35px;
 	border-color: #c3c7c8;
 	border-style: solid;
@@ -145,12 +155,12 @@ input.popup-info__size-checkbox:checked + label.popup-info__size-label {
 .popup-info__size-wrapper {
 	display: flex;
 	flex-direction: row;
-	gap: 15px;
+	gap: 5px;
 }
 
 .popup-info__select {
-	width: 369px;
-	margin-right: 20px;
+	width: 225px;
+	margin: 0 20px;
 	min-height: 35px;
 	border-color: #c3c7c8;
 	border-width: 1px;
@@ -166,9 +176,11 @@ input.popup-info__size-checkbox:checked + label.popup-info__size-label {
 
 .popup-info__other {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	margin-top: 15px;
-	justify-content: space-between;
+	gap: 10px;
 }
 
 .popup-info__available-img {
@@ -180,35 +192,37 @@ input.popup-info__size-checkbox:checked + label.popup-info__size-label {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	margin-left: 0;
 }
 
 .popup-info__available-p {
-	font-size: 13px;
 	font-weight: 400;
 	text-align: left;
 	line-height: 19px;
-	margin-left: 10px;
+	font-size: 12px;
+	margin-left: 5px;
 }
 
 .popup-info__delivery-img {
 	width: 15px;
 	height: 15px;
 }
+
 .popup-info__delivery {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	margin-right: 25px;
+	margin-right: auto;
 }
 
 .popup-info__delivery-div {
-	margin-left: 15px;
+	margin-left: 5px;
 	display: flex;
 	flex-direction: column;
 }
 
 .popup-info__delivery-p {
-	font-size: 13px;
+	font-size: 12px;
 	font-weight: 400;
 	line-height: 19px;
 	color: #333333;
@@ -217,7 +231,7 @@ input.popup-info__size-checkbox:checked + label.popup-info__size-label {
 }
 
 .popup-info__delivery-a {
-	font-size: 13px;
+	font-size: 12px;
 	font-weight: 400;
 	line-height: 19px;
 	font-style: normal;
@@ -228,10 +242,12 @@ input.popup-info__size-checkbox:checked + label.popup-info__size-label {
 
 .popup-info__btn-wrapper {
 	display: flex;
-	flex-direction: row;
+	margin-bottom: 50px;
 	gap: 10px;
 	margin-top: 15px;
-	margin-bottom: 36px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .popup-info__quantity {
@@ -245,6 +261,7 @@ input.popup-info__size-checkbox:checked + label.popup-info__size-label {
 	border-width: 1px;
 	border-style: solid;
 	border-radius: 5px;
+	margin: 0;
 }
 
 .popup-info__quantity-btn {
@@ -280,6 +297,7 @@ input.popup-info__size-checkbox:checked + label.popup-info__size-label {
 	color: #ffffff;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
+	margin-right: auto;
 }
 
 .popup-info__btn:hover {
@@ -350,35 +368,69 @@ input.popup-info__size-checkbox:checked + label.popup-info__size-label {
 	background-color: #0064b7;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 350px) {
 	img.popup-image__img {
-		margin-top: 30px;
-	}
-
-	.popup-form {
-		flex-direction: column;
-		width: 90%;
-		height: 600px;
-		margin-bottom: 50px;
-		gap: 0;
-	}
-
-	.popup-info {
-		align-items: center;
-		justify-content: center;
+		height: 134px;
+		width: 170px;
 	}
 
 	.popup-info__title {
-		text-align: center;
-		margin-top: 10px;
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+
+	
+
+	.popup-info__size-label {
+		width: 80px;
+	}
+
+	.popup-info__size-wrapper {
+		gap: 15px;
+	}
+
+	.popup-info__select {
+		width: 275px;
+	}
+
+	.popup-info__title {
+		width: 100%;
+	}
+
+	.popup-info__subtitle-p {
+		font-size: 12px;
+	}
+}
+
+@media (min-width: 450px) {
+	img.popup-image__img {
+		height: 166px;
+		width: 229px;
 	}
 
 	.popup-info__title-h2 {
 		margin: 0 30px;
 	}
 
-	.popup-info__price {
-		margin: 15px 30px 0 30px;
+	.popup-info__size-label {
+		width: 99px;
+		height: 35px;
+	}
+
+	.popup-form {
+		max-width: 500px;
+	}
+
+	.popup-info__delivery-p {
+		font-size: 13px;
+	}
+
+	.popup-info__delivery-a {
+		font-size: 13px;
+	}
+
+	.popup-info__available-p {
+		font-size: 13px;
 	}
 
 	.popup-info__select {
@@ -387,125 +439,105 @@ input.popup-info__size-checkbox:checked + label.popup-info__size-label {
 	}
 
 	.popup-info__btn-wrapper {
-		margin-bottom: 50px;
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+		margin-top: 15px;
+		justify-content: space-between;
 	}
 
 	.popup-info__other {
 		gap: 20px;
+		flex-direction: row;
+		margin-top: 15px;
 		justify-content: space-between;
-	}
-
-	.popup-info__delivery {
-		margin-right: auto;
-	}
-
-	.popup-info__available {
-		margin-left: auto;
-	}
-
-	.popup-info__btn-wrapper {
-		justify-content: space-between;
-	}
-
-	.popup-info__quantity {
-		margin-left: auto;
-	}
-
-	.popup-info__btn {
-		margin-right: auto;
 	}
 }
 
-@media (max-width: 450px) {
-	img.popup-image__img {
-		height: 144px;
-		width: 200px;
+@media (min-width: 768px) {
+	.popup-form {
+		gap: 30px;
+		width: 745px;
+		height: 384px;
+		flex-direction: row;
+		margin-bottom: 0;
+		max-width: 745px;
+	}
+
+	.popup-info {
+		position: relative;
+		flex-direction: column;
+		justify-content: start;
+		height: 100%;
+		width: 389px;
+		margin-right: 20px;
+		margin-bottom: 0;
+		align-items: start;
 	}
 
 	.popup-image {
-		margin: 0;
-		margin-top: 20px;
+		display: flex;
+		flex-direction: row;
+		height: 100%;
+		width: 356px;
+		align-items: center;
+		justify-content: center;
+		margin-left: 20px;
+		margin-top: 0;
 	}
 
 	.popup-info__title {
-		margin-left: 15px;
-		margin-right: 15px;
+		margin-top: 0;
+		margin-left: 0;
 	}
 
-	.popup-info__size-label {
-		width: 80px;
+	.popup-info__title-h2 {
+		margin-right: 73px;
+		margin-top: 24px;
+		text-align: left;
+		margin-left: 0;
+	}
+
+	.popup-info__price {
+		margin: 0;
+		margin-top: 10px;
 	}
 
 	.popup-info__select {
-		width: 275px;
-	}
-
-	.popup-info__btn-wrapper {
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.popup-info__quantity {
-		margin: 0;
-	}
-
-	.popup-info__delivery-p {
-		font-size: 12px;
-	}
-
-	.popup-info__delivery-a {
-		font-size: 12px;
+		width: 369px;
+		margin-left: 0;
+		margin-right: 0;
 	}
 
 	.popup-info__other {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
 		gap: 10px;
-	}
-
-	.popup-info__delivery-div {
-		margin-left: 5px;
+		margin-right: 0;
 	}
 
 	.popup-info__available-p {
-		font-size: 12px;
-		margin-left: 5px;
+		margin-left: 10px;
 	}
 
-	.popup-info__other {
-		flex-direction: column;
-		justify-content: center;
+	.popup-info__delivery {
+		display: flex;
+		flex-direction: row;
 		align-items: center;
+		margin-right: 5px;
 	}
 
-	.popup-info__available {
-		margin-left: 0;
+	.popup-info__delivery-div {
+		margin-left: 15px;
 	}
-}
 
-@media (max-width: 350px) {
+	.popup-info__delivery-p {
+		text-align: left;
+	}
+
 	img.popup-image__img {
-		height: 108px;
-		width: 150px;
-	}
-
-	.popup-info__title {
-		margin-top: 10px;
-		width: 300px;
-	}
-
-	.popup-info__size-wrapper {
-		gap: 5px;
-	}
-
-	.popup-info__size-label {
-		width: 70px;
-	}
-
-	.popup-info__select {
-		width: 225px;
-	}
-
-	.popup-info__available {
-		margin-left: 0;
+		margin: 0;
 	}
 }

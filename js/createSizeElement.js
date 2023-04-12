@@ -7,26 +7,21 @@ export const createSizeElement = data => {
 	const parentElement = document.querySelector('#size-wrapper')
 
 	const sizes = data.sizes.items
-	const variants = data.multiversions[0].items
+
 	const itemsNames = []
-	const itemVariants = []
+	let selectedValue
+	let localObj = JSON.parse(localStorage.getItem('iaiStorage'))
+	if (localObj) {
+		selectedValue = localObj.size
+	}
 
 	for (const key in sizes) {
 		const itemName = sizes[key]
 		itemsNames.push(itemName)
 	}
 
-	for (const key in variants) {
-		const item_Variants = variants[key].values
-		for (const key in item_Variants) {
-			const itemVariant = item_Variants[key]
-			itemVariants.push(itemVariant)
-		}
-	}
-
+	let isChecked
 	for (const element of itemsNames) {
-		const isChecked = JSON.parse(localStorage.getItem(element.type))
-
 		const newDiv = document.createElement('div')
 		newDiv.classList.add('popup-info__size')
 
@@ -36,8 +31,15 @@ export const createSizeElement = data => {
 		inputRadio.classList.add('popup-info__size-checkbox')
 		inputRadio.name = 'size'
 		inputRadio.value = element.type
-		if (isChecked) {
-			inputRadio.checked = isChecked
+
+		if (!selectedValue) {
+			if (element === itemsNames[0]) {
+				inputRadio.checked = true
+			}
+		} else {
+			if (inputRadio.value === selectedValue) {
+				inputRadio.checked = true
+			}
 		}
 		inputRadio.onclick = () => {
 			updateObject()

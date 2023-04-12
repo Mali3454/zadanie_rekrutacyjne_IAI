@@ -1,8 +1,8 @@
-import { fetchData } from './fetchData.js'
 import { updateObject } from './updateObject.js'
 
 export const slider = (data, index = 0) => {
 	const item = updateObject()
+	let localObj = JSON.parse(localStorage.getItem('iaiStorage'))
 
 	const multiversions = data.multiversions[0].items
 
@@ -13,7 +13,8 @@ export const slider = (data, index = 0) => {
 			const multiversion = multiversions[key]
 			if (multiversion.values_id === item.variant) {
 				let maxIndex = multiversion.img.length
-				localStorage.setItem('maxIndex', JSON.stringify(maxIndex))
+				localObj.maxIndex = maxIndex
+				localStorage.setItem('iaiStorage', JSON.stringify(localObj))
 				const image = multiversion.img[index]
 				slider.src = image.src
 				slider.alt = image.alt

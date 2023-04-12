@@ -1,23 +1,30 @@
-import { fetchData } from './fetchData.js'
 import { updateObject } from './updateObject.js'
 
 export const setAmount = data => {
 	const item = updateObject()
+	const btn = document.querySelector('#submit')
 
-	let localAmount = JSON.parse(localStorage.getItem('amount'))
+	let localObj = JSON.parse(localStorage.getItem('iaiStorage'))
+	localObj.amount = 0
 
-	let amount = localAmount ? localAmount : 1
+	let amount = localObj.amount ? localObj.amount : 1
 
-	const maxAmount = data.sizes.items[item.type].amount
+	const maxAmount = data.sizes.items[item.size].amount
+	localObj.maxAmount = maxAmount
 
-	localStorage.setItem('amount', JSON.stringify(amount))
-	localStorage.setItem('maxAmount', JSON.stringify(maxAmount))
+	localStorage.setItem('iaiStorage', JSON.stringify(localObj))
 
 	const quantityP = document.querySelector('#quantity')
 	if (amount > maxAmount) {
 		quantityP.textContent = maxAmount
-		localStorage.setItem('amount', JSON.stringify(maxAmount))
+		localStorage.setItem('iaiStorage', JSON.stringify(localObj))
 	} else {
 		quantityP.textContent = amount
+	}
+
+	if (maxAmount === 0) {
+		btn.style.backgroundColor = 'gray'
+	} else {
+		btn.style.backgroundColor = '#0090f6'
 	}
 }

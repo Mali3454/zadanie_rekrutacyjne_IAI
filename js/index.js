@@ -7,15 +7,41 @@ import { setAvailable } from './setAvailable.js'
 import { setPrice } from './setPrice.js'
 import { setTitle } from './setTitle.js'
 import { slider } from './slider.js'
+import { updateObject } from './updateObject.js'
 
 fetchData().then(data => {
 	createSizeElement(data)
 	createOptionElement(data)
+	updateObject()
 	setTitle(data)
 	setPrice(data)
 	setAvailable(data)
 	setAmount(data)
-	slider()
+	slider(data)
+
+	prevBtn.addEventListener('click', e => {
+		e.preventDefault()
+
+		let index = 0
+
+		if (index > 0) {
+			index--
+		}
+		slider(data, index)
+	})
+
+	nextBtn.addEventListener('click', e => {
+		e.preventDefault()
+
+		let index = 0
+		let localObj = JSON.parse(localStorage.getItem('iaiStorage'))
+		let maxIndex = localObj.maxIndex
+
+		if (index < maxIndex) {
+			index++
+		}
+		slider(data, index)
+	})
 })
 
 const quantityP = document.querySelector('#quantity')
@@ -32,49 +58,30 @@ const close = document.querySelector('#popup__close')
 buttonDown.addEventListener('click', e => {
 	e.preventDefault()
 
-	let amount = JSON.parse(localStorage.getItem('amount'))
+	let localObj = JSON.parse(localStorage.getItem('iaiStorage'))
+	let amount = localObj.amount
 
 	if (amount > 1) {
 		amount--
 		quantityP.textContent = amount
-		localStorage.setItem('amount', JSON.stringify(amount))
+		localObj.amount = amount
+		localStorage.setItem('iaiStorage', JSON.stringify(localObj))
 	}
 })
 
 buttonUp.addEventListener('click', e => {
 	e.preventDefault()
-	let maxAmount = JSON.parse(localStorage.getItem('maxAmount'))
+	let localObj = JSON.parse(localStorage.getItem('iaiStorage'))
 
-	let amount = JSON.parse(localStorage.getItem('amount'))
+	let maxAmount = localObj.maxAmount
+	let amount = localObj.amount
 
 	if (amount < maxAmount) {
 		amount++
 		quantityP.textContent = amount
-		localStorage.setItem('amount', JSON.stringify(amount))
+		localObj.amount = amount
+		localStorage.setItem('iaiStorage', JSON.stringify(localObj))
 	}
-})
-
-prevBtn.addEventListener('click', e => {
-	e.preventDefault()
-
-	let index = 0
-
-	if (index > 0) {
-		index--
-	}
-	slider(index)
-})
-
-nextBtn.addEventListener('click', e => {
-	e.preventDefault()
-
-	let index = 0
-	let maxIndex = JSON.parse(localStorage.getItem('maxIndex'))
-
-	if (index < maxIndex) {
-		index++
-	}
-	slider(index)
 })
 
 form.addEventListener('submit', e => {
