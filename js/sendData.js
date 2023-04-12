@@ -1,3 +1,5 @@
+import { showError } from './showError.js'
+
 // This function gets executed when called
 export const sendData = () => {
 	// The code gets references to HTML elements
@@ -35,17 +37,22 @@ export const sendData = () => {
 				if (response.ok) {
 					console.log('Dane wysłane', data)
 				} else {
-					console.log('Wystąpił błąd', data)
+					throw new Error('error')
 				}
 			})
 			.catch(error => {
 				// Log error to the console if there's an error in sending the data
 				console.log(error)
+				console.log(data)
+				showError()
 			})
 
 		// Hide popup after sending the data
-		popup.style.display = 'none'
+
 		overlay.classList.remove('popup-overlay')
-		popupBtn.style.zIndex = 1
+		popup.classList.remove('--active')
+		popupBtn.classList.remove('--active')
+		popup.classList.add('--inactive')
+		popupBtn.classList.add('--inactive')
 	}
 }
