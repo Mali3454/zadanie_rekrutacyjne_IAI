@@ -1,10 +1,13 @@
 import { updateObject } from './updateObject.js'
 
 export const setPrice = data => {
+	// Call the updateObject function and assign the object
 	const item = updateObject()
 
 	const multiversions = data.multiversions[0].items
 
+
+	//Set product prize depending on information from json
 	for (const key in multiversions) {
 		if (item) {
 			if (item.size in data.sizes.items) {

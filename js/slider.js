@@ -8,6 +8,7 @@ export const slider = (data, index = 0) => {
 
 	const slider = document.querySelector('#slider')
 
+	//Set the picture according to the selected color
 	for (const key in multiversions) {
 		if (item) {
 			const multiversion = multiversions[key]

@@ -1,5 +1,3 @@
-import { fetchData } from './fetchData.js'
-
 export const setTitle = data => {
 	const titleDiv = document.querySelector('#title')
 	

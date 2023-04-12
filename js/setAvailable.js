@@ -1,8 +1,11 @@
 import { updateObject } from './updateObject.js'
 
 export const setAvailable = data => {
+	// Call the updateObject function and assign the object
 	const item = updateObject()
 
+
+	//Set product availability depending on information from json
 	if (item) {
 		if (item.size in data.sizes.items) {
 			const status = data.sizes.items[item.size].status
