@@ -315,7 +315,7 @@ input.popup-info__size-checkbox:checked + label.popup-info__size-label {
 	font-style: normal;
 	text-align: center;
 	color: #ffffff;
-	cursor: pointer;
+	cursor: not-allowed;
 	margin-right: auto;
 	background-color: gray;
 }
