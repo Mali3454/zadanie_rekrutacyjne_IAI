@@ -23,8 +23,10 @@ export const setAmount = data => {
 	}
 
 	if (maxAmount === 0) {
-		btn.style.backgroundColor = 'gray'
+		btn.classList.remove('popup-info__btn')
+		btn.classList.add('popup-info__btn-disabled')
 	} else {
-		btn.style.backgroundColor = '#0090f6'
+		btn.classList.remove('popup-info__btn-disabled')
+		btn.classList.add('popup-info__btn')
 	}
 }
